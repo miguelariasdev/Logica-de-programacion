@@ -20,11 +20,28 @@ Como hacerlo:
 - Devolver el contenido de la busqueda
  */
 
-function buscarPalabra (frase, busqueda) {
 
-    console.log(frase);
-    console.log(busqueda);
+function buscarPalabra (frase, palabra) {
+
+    frase_limpia = frase.toLowerCase().replace(/[!¡.,-]/gi, '');
+    palabraMinuscula = palabra.toLowerCase();
+    numeroPalabra = 0;
+
+    arrayPalabras = frase_limpia.split(" ");
+
+    console.log(arrayPalabras);
+
+    for (let i = 0; i < arrayPalabras.length; i++) {
+        if (arrayPalabras[i] === palabraMinuscula){
+            numeroPalabra ++;
+            
+        }
+        
+    }
+    console.log(numeroPalabra);
+    return numeroPalabra;
 
 }
+
 
 buscarPalabra(prompt("Indica tu frase aquí: "), prompt("Indica la palabra a buscar: "));
